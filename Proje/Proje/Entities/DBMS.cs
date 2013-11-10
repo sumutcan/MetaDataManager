@@ -39,6 +39,6 @@ namespace Proje.Entities
         public abstract void getDatabases();
         public abstract void getTables();
         public abstract void connect(string kadi, string sifre, string sunucu);
-
+        public abstract void getColumns();
     }
 }

@@ -21,11 +21,20 @@ namespace Proje.Entities
         {
             // TODO: Complete member initialization
             this.name = name;
+            columns = new List<Column>();
+        }
+
+        private List<Column> columns;
+
+        public List<Column> Columns
+        {
+            get { return columns; }
+            set { columns = value; }
         }
 
         public Table()
-        { 
-        
+        {
+            columns = new List<Column>();
         }
     }
 }

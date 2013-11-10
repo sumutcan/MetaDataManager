@@ -26,14 +26,24 @@ namespace Proje
                
                 Connector.getInstance().Dbms.getDatabases();
                 Connector.getInstance().Dbms.getTables();
+                Connector.getInstance().Dbms.getColumns();
+
                 foreach (Database db in Connector.getInstance().Dbms.Databases)
                 {
                     TreeNode dbNode = new TreeNode(db.DbName);
                     tvDB.Nodes.Add(dbNode);
 
                     foreach (Table t in db.Tables)
-                        dbNode.Nodes.Add(t.Name);
-
+                    {
+                        TreeNode tableNode = new TreeNode(t.Name);
+                        dbNode.Nodes.Add(tableNode);
+                        foreach (Column c in t.Columns)
+                        {
+                            tableNode.Nodes.Add(c.ToString());
+                        }
+                            
+                     
+                    }
                     btnCreateXml.Visible = true;
                 }
 

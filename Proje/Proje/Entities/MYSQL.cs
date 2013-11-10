@@ -21,5 +21,10 @@ namespace Proje.Entities
         {
             base.Name = "MYSQL";
         }
+
+        public override void getColumns()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

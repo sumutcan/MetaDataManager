@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Connector.cs" />
     <Compile Include="DBMSFactory.cs" />
+    <Compile Include="Entities\Column.cs" />
     <Compile Include="Entities\Database.cs" />
     <Compile Include="Entities\DBMS.cs" />
     <Compile Include="Entities\MSSQL.cs" />

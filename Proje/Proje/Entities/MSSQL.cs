@@ -45,6 +45,30 @@ namespace Proje.Entities
                     d.Tables.Add(new Table(dr.ItemArray[2].ToString()));
             }
         }
+
+        public override void getColumns()
+        {
+            foreach (Database d in Databases)
+            {
+                foreach (Table t in d.Tables)
+                {
+                    DataTable dt = getConnection().GetSchema("Columns", new[] { d.DbName, "dbo", t.Name });
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Column c = new Column();
+                        c.Name = dr.ItemArray[3].ToString();
+                        c.Datatype = dr.ItemArray[7].ToString();
+
+                        if (dr.ItemArray[6].ToString() == "YES")
+                            c.Nullable = true;
+                        else
+                            c.Nullable = false;
+                        
+                        t.Columns.Add(c);
+                    }
+                }
+            }
+        }
     }
 
 }
