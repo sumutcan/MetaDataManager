@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>Created with EditiX (http://www.editix.com) at Thu Oct 31 21:35:29 EET 2013</xs:documentation>
+  </xs:annotation>
+  <xs:element name="DBMS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name ="Database" minOccurs="0" maxOccurs ="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name ="Table" minOccurs ="0" maxOccurs ="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name"></xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name ="name"></xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name ="name"></xs:attribute>
+    </xs:complexType>
+    <!--<xs:key name="PKdatabase">
+      <xs:selector xpath="database/name"></xs:selector>
+      <xs:field xpath="."></xs:field>
+    </xs:key>
+    <xs:key name="PKtable">
+      <xs:selector xpath="table/name"></xs:selector>
+      <xs:field xpath="."></xs:field>
+    </xs:key>
+    <xs:keyref name="FKtabletodatabase" refer="PKdatabase">
+      <xs:selector xpath="table/databaseName"></xs:selector>
+      <xs:field xpath="."></xs:field>
+    </xs:keyref>-->
+  </xs:element>
+</xs:schema>
